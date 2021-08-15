@@ -7,12 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AlreadyReadBookActivity extends AppCompatActivity {
+public class CurrentlyReadingBookActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_already_read_book);
+        setContentView(R.layout.activity_currently_reading_book);
 
         RecyclerView booksRecView = findViewById(R.id.booksRecView); // Initializes the Recycler View
 
@@ -20,7 +20,7 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
         booksRecView.setAdapter(adapter);
         booksRecView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter.setBooks(Utils.getAlreadyReadBooks());
+        adapter.setBooks(Utils.getCurrentlyReadingBooks());
     }
 
     @Override

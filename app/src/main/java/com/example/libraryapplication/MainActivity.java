@@ -25,10 +25,34 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent); // Start the new activity
         });
 
+        // Makes the CurrentlyReading button clickable
+        btnCurrentlyReading.setOnClickListener(v -> {
+            // Creates a new Intent which will cause another activity to be launched
+            Intent intent = new Intent(MainActivity.this, CurrentlyReadingBookActivity.class);  // The context from which to launch the activity
+            // The destination context
+            startActivity(intent); // Start the new activity
+        });
+
         // Makes the AlreadyRead button clickable
         btnAlreadyRead.setOnClickListener(v -> {
             // Creates a new Intent which will cause another activity to be launched
             Intent intent = new Intent(MainActivity.this, AlreadyReadBookActivity.class);  // The context from which to launch the activity
+            // The destination context
+            startActivity(intent); // Start the new activity
+        });
+
+        // Makes the AlreadyRead button clickable
+        btnWishlist.setOnClickListener(v -> {
+            // Creates a new Intent which will cause another activity to be launched
+            Intent intent = new Intent(MainActivity.this, WishlistBookActivity.class);  // The context from which to launch the activity
+            // The destination context
+            startActivity(intent); // Start the new activity
+        });
+
+        // Makes the AlreadyRead button clickable
+        btnFavourite.setOnClickListener(v -> {
+            // Creates a new Intent which will cause another activity to be launched
+            Intent intent = new Intent(MainActivity.this, FavouriteBookActivity.class);  // The context from which to launch the activity
             // The destination context
             startActivity(intent); // Start the new activity
         });

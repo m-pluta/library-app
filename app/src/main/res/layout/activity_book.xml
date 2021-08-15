@@ -36,26 +36,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/btnAddToWantToRead"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Want To Read"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/btnAddToCurrentlyReading"
-                app:layout_constraintStart_toStartOf="@+id/btnAddToCurrentlyReading"
-                app:layout_constraintTop_toBottomOf="@+id/btnAddToCurrentlyReading" />
-
-            <Button
                 android:id="@+id/btnAddToAlreadyRead"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Already Read"
                 android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/btnAddToWantToRead"
-                app:layout_constraintStart_toStartOf="@+id/btnAddToWantToRead"
-                app:layout_constraintTop_toBottomOf="@+id/btnAddToWantToRead" />
+                app:layout_constraintEnd_toEndOf="@+id/btnAddToCurrentlyReading"
+                app:layout_constraintStart_toStartOf="@+id/btnAddToCurrentlyReading"
+                app:layout_constraintTop_toBottomOf="@+id/btnAddToCurrentlyReading" />
+
+            <Button
+                android:id="@+id/btnAddToWantToRead"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Want To Read"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/btnAddToAlreadyRead"
+                app:layout_constraintStart_toStartOf="@+id/btnAddToAlreadyRead"
+                app:layout_constraintTop_toBottomOf="@+id/btnAddToAlreadyRead" />
 
             <Button
                 android:id="@+id/btnAddToFavourites"

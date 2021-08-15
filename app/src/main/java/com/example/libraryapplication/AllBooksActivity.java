@@ -8,18 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AllBooksActivity extends AppCompatActivity {
 
-    private RecyclerView booksRecView;
-    private BookRecViewAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
 
-        booksRecView = findViewById(R.id.booksRecView); // Initializes the Recycler View
+        RecyclerView booksRecView = findViewById(R.id.booksRecView); // Initializes the Recycler View
 
-        adapter = new BookRecViewAdapter(this); // Creates a new adapter passing in the current context
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this); // Creates a new adapter passing in the current context
         booksRecView.setAdapter(adapter);               // Once it is created, the Recycler View in the current Activity receives it as it's adapter
 
         booksRecView.setLayoutManager(new LinearLayoutManager(this)); // The LayoutManager for holding all the seperate CardViews

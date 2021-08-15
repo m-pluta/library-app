@@ -39,9 +39,109 @@ public class BookActivity extends AppCompatActivity {
                     setData(incomingBook);
 
                     handleAlreadyRead(incomingBook);
+                    handleWantToRead(incomingBook);
+                    handleCurrentlyReadingBooks(incomingBook);
+                    handleFavourite(incomingBook);
                 }
             }
         }
+    }
+
+    /**
+     * Enable and disable the button for the Favourite option
+     * Add the book to the Favourite Book ArrayList
+     *
+     * @param book
+     */
+    private void handleFavourite(final Book book) {
+        ArrayList<Book> favouriteBooks = Utils.getFavouriteBooks();
+
+        boolean doesExist = false;
+        for (Book b : favouriteBooks) {
+            if (b.getId() == book.getId()) {
+                doesExist = true;
+            }
+        }
+        if (doesExist) {
+            btnAddToFavourite.setEnabled(false);
+        } else {
+            btnAddToFavourite.setOnClickListener(v -> {
+                if (Utils.getInstance().addToFavourite(book)) {
+                    Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
+
+                    //TODO: Ask the user if they want to navigate
+                    Intent intent = new Intent(BookActivity.this, FavouriteBookActivity.class);   // The context from which to launch the activity and the destination context
+                    startActivity(intent); // Start the new activity
+                } else {
+                    Toast.makeText(BookActivity.this, "Error occurred when adding the book, Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    /**
+     * Enable and disable the button for the Currently Reading option
+     * Add the book to the Currently Reading Book ArrayList
+     *
+     * @param book
+     */
+    private void handleCurrentlyReadingBooks(final Book book) {
+        ArrayList<Book> currentlyReadingBooks = Utils.getCurrentlyReadingBooks();
+
+        boolean doesExist = false;
+        for (Book b : currentlyReadingBooks) {
+            if (b.getId() == book.getId()) {
+                doesExist = true;
+            }
+        }
+        if (doesExist) {
+            btnAddToCurrentlyReading.setEnabled(false);
+        } else {
+            btnAddToCurrentlyReading.setOnClickListener(v -> {
+                if (Utils.getInstance().addToCurrentlyReading(book)) {
+                    Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
+
+                    //TODO: Ask the user if they want to navigate
+                    Intent intent = new Intent(BookActivity.this, CurrentlyReadingBookActivity.class);   // The context from which to launch the activity and the destination context
+                    startActivity(intent); // Start the new activity
+                } else {
+                    Toast.makeText(BookActivity.this, "Error occurred when adding the book, Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    /**
+     * Enable and disable the button for the Want To Read option
+     * Add the book to the Want To Read Book ArrayList
+     *
+     * @param book
+     */
+    private void handleWantToRead(final Book book) {
+        ArrayList<Book> wantToReadBooks = Utils.getWantToReadBooks();
+
+        boolean doesExist = false;
+        for (Book b : wantToReadBooks) {
+            if (b.getId() == book.getId()) {
+                doesExist = true;
+            }
+        }
+        if (doesExist) {
+            btnAddToWantToRead.setEnabled(false);
+        } else {
+            btnAddToWantToRead.setOnClickListener(v -> {
+                if (Utils.getInstance().addToWantToRead(book)) {
+                    Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
+
+                    //TODO: Ask the user if they want to navigate
+                    Intent intent = new Intent(BookActivity.this, WishlistBookActivity.class);   // The context from which to launch the activity and the destination context
+                    startActivity(intent); // Start the new activity
+                } else {
+                    Toast.makeText(BookActivity.this, "Error occurred when adding the book, Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
     }
 
     /**
@@ -50,8 +150,8 @@ public class BookActivity extends AppCompatActivity {
      *
      * @param book
      */
-    private void handleAlreadyRead(Book book) {
-        ArrayList<Book> alreadyReadBooks = Utils.getInstance().getAlreadyReadBooks();
+    private void handleAlreadyRead(final Book book) {
+        ArrayList<Book> alreadyReadBooks = Utils.getAlreadyReadBooks();
 
         boolean doesExist = false;
         for (Book b : alreadyReadBooks) {
@@ -67,17 +167,13 @@ public class BookActivity extends AppCompatActivity {
                     Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
 
                     //TODO: Ask the user if they want to navigate
-                    Intent intent = new Intent(BookActivity.this, AlreadyReadBookActivity.class);   // The context from which to launch the activity
-                    // The destination context
+                    Intent intent = new Intent(BookActivity.this, AlreadyReadBookActivity.class);   // The context from which to launch the activity and the destination context
                     startActivity(intent); // Start the new activity
                 } else {
                     Toast.makeText(BookActivity.this, "Error occurred when adding the book, Please try again.", Toast.LENGTH_SHORT).show();
                 }
             });
-
         }
-
-
     }
 
     /**
@@ -104,7 +200,7 @@ public class BookActivity extends AppCompatActivity {
         txtPages = findViewById(R.id.txtPages);
         txtDescription = findViewById(R.id.txtLongDescription);
 
-        btnAddToWantToRead = findViewById(R.id.btnAddToWantToRead);
+        btnAddToCurrentlyReading = findViewById(R.id.btnAddToCurrentlyReading);
         btnAddToAlreadyRead = findViewById(R.id.btnAddToAlreadyRead);
         btnAddToWantToRead = findViewById(R.id.btnAddToWantToRead);
         btnAddToFavourite = findViewById(R.id.btnAddToFavourites);

@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LibraryApplication">
         <activity
+            android:name=".FavouriteBookActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WishlistBookActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CurrentlyReadingBookActivity"
+            android:exported="true" />
+        <activity
             android:name=".AlreadyReadBookActivity"
             android:exported="true" />
         <activity
