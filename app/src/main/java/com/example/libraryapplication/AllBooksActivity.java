@@ -16,7 +16,7 @@ public class AllBooksActivity extends AppCompatActivity {
 
         RecyclerView booksRecView = findViewById(R.id.booksRecView); // Initializes the Recycler View
 
-        BookRecViewAdapter adapter = new BookRecViewAdapter(this); // Creates a new adapter passing in the current context
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this, "allBooks"); // Creates a new adapter passing in the current context
         booksRecView.setAdapter(adapter);               // Once it is created, the Recycler View in the current Activity receives it as it's adapter
 
         booksRecView.setLayoutManager(new LinearLayoutManager(this)); // The LayoutManager for holding all the seperate CardViews

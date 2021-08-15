@@ -64,9 +64,9 @@
                 android:layout_marginTop="16dp"
                 android:text="Add To Favourites"
                 android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/btnAddToAlreadyRead"
-                app:layout_constraintStart_toStartOf="@+id/btnAddToAlreadyRead"
-                app:layout_constraintTop_toBottomOf="@+id/btnAddToAlreadyRead" />
+                app:layout_constraintEnd_toEndOf="@+id/btnAddToWantToRead"
+                app:layout_constraintStart_toStartOf="@+id/btnAddToWantToRead"
+                app:layout_constraintTop_toBottomOf="@+id/btnAddToWantToRead" />
 
             <TextView
                 android:id="@+id/bookNameText"

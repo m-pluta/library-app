@@ -68,7 +68,7 @@
                 android:text="Short Description"
                 android:id="@+id/txtShortDesc"
                 android:layout_below="@+id/txtAuthor"
-                android:layout_marginTop="7dp"/>
+                android:layout_marginTop="7dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -76,7 +76,17 @@
                 android:src="@drawable/ic_up_arrow"
                 android:layout_below="@id/txtShortDesc"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/btnUpArrow"/>
+                android:id="@+id/btnUpArrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Remove"
+                android:layout_below="@+id/txtShortDesc"
+                android:layout_toStartOf="@+id/btnUpArrow"
+                android:layout_marginEnd="7dp"
+                android:textColor="@color/pink"
+                android:id="@+id/btnRemove" />
 
         </RelativeLayout>
 
