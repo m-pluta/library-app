@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LibraryApplication">
         <activity
+            android:name=".WebsiteActivity"
+            android:exported="true" />
+        <activity
             android:name=".FavouriteBookActivity"
             android:exported="true" />
         <activity

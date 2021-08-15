@@ -1,5 +1,6 @@
 package com.example.libraryapplication;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -55,6 +56,23 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, FavouriteBookActivity.class);  // The context from which to launch the activity
             // The destination context
             startActivity(intent); // Start the new activity
+        });
+
+        // Makes the About button clickable
+        btnAbout.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(getString(R.string.app_name));
+            builder.setMessage("Developed by Mikey from the freecodecamp tutorial on YouTube\n"
+                    + "Check out their website here: meiCode.org");
+            builder.setPositiveButton("Visit", ((dialog, which) -> {
+                //TODO: Show the website
+                Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
+                intent.putExtra("url", "https://meicode.org/");
+                startActivity(intent);
+            }));
+            builder.setCancelable(true);
+            builder.create().show();
+
         });
 
         Utils.getInstance();    // Creates the initial instance of the Utils class
