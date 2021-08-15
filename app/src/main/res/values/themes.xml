@@ -12,7 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowAnimationStyle">@style/CustomAnimation</item>
+
+        <!-- Code for making the transition animation a global transition -->
+        <!--        <item name="android:windowAnimationStyle">@style/CustomAnimation</item>-->
     </style>
 
     <style name="CustomAnimation" parent="@android:style/Animation.Activity">

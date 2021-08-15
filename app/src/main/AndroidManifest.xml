@@ -16,22 +16,28 @@
             android:exported="true" />
         <activity
             android:name=".FavouriteBookActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_favourite_books" />
         <activity
             android:name=".WishlistBookActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_wishlist_books" />
         <activity
             android:name=".CurrentlyReadingBookActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_currently_reading_books" />
         <activity
             android:name=".AlreadyReadBookActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_already_read_books" />
         <activity
             android:name=".BookActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_book" />
         <activity
             android:name=".AllBooksActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/activity_all_books" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
