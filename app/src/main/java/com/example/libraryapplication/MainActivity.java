@@ -1,10 +1,10 @@
 package com.example.libraryapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,13 +17,19 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
+        // Makes the AllBooks button clickable
         btnAllBooks.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
-            startActivity(intent);
+            // Creates a new Intent which will cause another activity to be launched
+            Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);  // The context from which to launch the activity
+            // The destination context
+            startActivity(intent); // Start the new activity
         });
 
     }
 
+    /**
+     * Initializes all the GUI components in the Main Activity by using findViewById()
+     */
     private void initViews() {
         btnAllBooks = findViewById(R.id.btnAllBooks);
         btnAlreadyRead = findViewById(R.id.btnAlreadyRead);

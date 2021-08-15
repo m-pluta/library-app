@@ -8,7 +8,7 @@ public class Book {
     private String imageUrl;
     private String shortDesc;
     private String longDesc;
-    private boolean isExpanded;
+    private boolean isExpanded;                 // Whether this given book is meant to have the expanded layout in the Recycler view
 
     public Book(int id, String name, String author, int pages, String imageUrl, String shortDesc, String longDesc) {
         this.id = id;
@@ -27,6 +27,13 @@ public class Book {
 
     public void setExpanded(boolean expanded) {
         isExpanded = expanded;
+    }
+
+    /**
+     * Flips the isExpanded state of the book
+     */
+    public void flipExpanded() {
+        setExpanded(!isExpanded());
     }
 
     public int getId() {
