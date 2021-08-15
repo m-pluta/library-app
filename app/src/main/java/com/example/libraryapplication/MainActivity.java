@@ -25,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent); // Start the new activity
         });
 
+        // Makes the AlreadyRead button clickable
+        btnAlreadyRead.setOnClickListener(v -> {
+            // Creates a new Intent which will cause another activity to be launched
+            Intent intent = new Intent(MainActivity.this, AlreadyReadBookActivity.class);  // The context from which to launch the activity
+            // The destination context
+            startActivity(intent); // Start the new activity
+        });
+
+        Utils.getInstance();    // Creates the initial instance of the Utils class
+
     }
 
     /**

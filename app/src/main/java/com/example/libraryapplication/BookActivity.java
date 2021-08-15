@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 
 public class BookActivity extends AppCompatActivity {
 
@@ -34,9 +37,47 @@ public class BookActivity extends AppCompatActivity {
                 Book incomingBook = Utils.getInstance().getBookByID(bookID);// Gets the Book object with the wanted ID
                 if (incomingBook != null) {
                     setData(incomingBook);
+
+                    handleAlreadyRead(incomingBook);
                 }
             }
         }
+    }
+
+    /**
+     * Enable and disable the button for the Already Read option
+     * Add the book to the Already Read Book ArrayList
+     *
+     * @param book
+     */
+    private void handleAlreadyRead(Book book) {
+        ArrayList<Book> alreadyReadBooks = Utils.getInstance().getAlreadyReadBooks();
+
+        boolean doesExist = false;
+        for (Book b : alreadyReadBooks) {
+            if (b.getId() == book.getId()) {
+                doesExist = true;
+            }
+        }
+        if (doesExist) {
+            btnAddToAlreadyRead.setEnabled(false);
+        } else {
+            btnAddToAlreadyRead.setOnClickListener(v -> {
+                if (Utils.getInstance().addToAlreadyRead(book)) {
+                    Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
+
+                    //TODO: Ask the user if they want to navigate
+                    Intent intent = new Intent(BookActivity.this, AlreadyReadBookActivity.class);   // The context from which to launch the activity
+                    // The destination context
+                    startActivity(intent); // Start the new activity
+                } else {
+                    Toast.makeText(BookActivity.this, "Error occurred when adding the book, Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
     }
 
     /**
