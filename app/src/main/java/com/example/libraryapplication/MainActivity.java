@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Utils.getInstance();    // Creates the initial instance of the Utils class
+        Utils.getInstance(this);    // Creates the initial instance of the Utils class
 
     }
 

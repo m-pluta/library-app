@@ -28,7 +28,7 @@ public class AllBooksActivity extends AppCompatActivity {
         booksRecView.setLayoutManager(new LinearLayoutManager(this)); // The LayoutManager for holding all the seperate CardViews
         // Can't use GridLayoutManager as the collapsing and extending of the cards doesn't work with it
 
-        adapter.setBooks(Utils.getAllBooks()); // Gets the instance of the Utils class and gets the ArrayList with all the books
+        adapter.setBooks(Utils.getInstance(this).getAllBooks()); // Gets the instance of the Utils class and gets the ArrayList with all the books
     }
 
     //Code for making a window transition animation apply to only this activity and not globally
